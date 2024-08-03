@@ -2,6 +2,7 @@ import { faSlack } from "@fortawesome/free-brands-svg-icons";
 import { faUsers } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   const [isDoorOpen, setIsDoorOpen] = useState<boolean>(false);
@@ -116,12 +117,11 @@ export default function Home() {
         <div className="flex flex-col space-y-4">
           <h1 className="text-3xl font-bold">Interested in Classes?</h1>
           <p>
-            <a
-              href="https://www.heatsynclabs.org/register"
+            <Link to="/register"
               className="link link-hover text-blue-500"
             >
               Register
-            </a>{" "}
+            </Link>{" "}
             to get notifications on classes you are interested in.
           </p>
           <p>

@@ -6,6 +6,7 @@ import Home from "@/routes/home";
 import Root from "@/routes/root";
 import ErrorPage from "@/routes/errorPage";
 import Classes from "@/routes/classes";
+import Register from "@/routes/register";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
       {
         path: "/classes",
         element: <Classes />,
+      },
+      {
+        path: "/register",
+        element: <Register />,
       },
     ],
   },
