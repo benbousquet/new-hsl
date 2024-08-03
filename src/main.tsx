@@ -7,7 +7,8 @@ import Root from "@/routes/root";
 import ErrorPage from "@/routes/errorPage";
 import Classes from "@/routes/classes";
 import Register from "@/routes/register";
-import FSCalendar from "./routes/fscalendar";
+import FSCalendar from "@/routes/fscalendar";
+import Live from "@/routes/live";
 
 const router = createBrowserRouter([
   {
@@ -27,12 +28,16 @@ const router = createBrowserRouter([
         path: "/register",
         element: <Register />,
       },
+      {
+        path: "/live",
+        element: <Live />,
+      },
     ],
   },
   {
     path: "/fscalendar",
     element: <FSCalendar />,
-  }
+  },
 ]);
 
 createRoot(document.getElementById("root")!).render(
