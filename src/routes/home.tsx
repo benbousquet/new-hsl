@@ -126,12 +126,12 @@ export default function Home() {
           </p>
           <p>
             Check out{" "}
-            <a
-              href="https://www.heatsynclabs.org/classes"
+            <Link
+              to="/classes"
               className="link link-hover text-blue-500"
             >
               all our classes
-            </a>{" "}
+            </Link>{" "}
             to see what's available.
           </p>
         </div>

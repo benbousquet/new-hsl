@@ -7,6 +7,7 @@ import Root from "@/routes/root";
 import ErrorPage from "@/routes/errorPage";
 import Classes from "@/routes/classes";
 import Register from "@/routes/register";
+import FSCalendar from "./routes/fscalendar";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
       },
     ],
   },
+  {
+    path: "/fscalendar",
+    element: <FSCalendar />,
+  }
 ]);
 
 createRoot(document.getElementById("root")!).render(
