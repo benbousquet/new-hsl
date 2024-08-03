@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import DoorStatus from "../components/doorStatus";
 
 export default function Live() {
   const [cameraUrls, setCameraUrls] = useState<string[]>(["", "", "", ""]);
@@ -9,18 +10,18 @@ export default function Live() {
     const checkCameraFeed = setInterval(() => {
       updateCameraUrls();
     }, 10000);
-    return () => clearInterval(checkCameraFeed)
+    return () => clearInterval(checkCameraFeed);
   }, []);
 
-  function updateCameraUrls () {
-      const newUrls: string[] = [];
-      cameraUrls.forEach((_url, idx) => {
-        const newUrl = `https://live.heatsynclabs.org/snapshot.php?camera=${
-          idx + 1
-        }&time=${Date.now()}`;
-        newUrls.push(newUrl);
-      });
-      setCameraUrls(newUrls);
+  function updateCameraUrls() {
+    const newUrls: string[] = [];
+    cameraUrls.forEach((_url, idx) => {
+      const newUrl = `https://live.heatsynclabs.org/snapshot.php?camera=${
+        idx + 1
+      }&time=${Date.now()}`;
+      newUrls.push(newUrl);
+    });
+    setCameraUrls(newUrls);
   }
 
   return (
@@ -54,8 +55,14 @@ export default function Live() {
           </Link>
           .
         </p>
+        <p>
+          <span className="font-bold">Doors currently:</span> <DoorStatus />
+
+        </p>
         <div className="flex flex-row flex-wrap">
-          {cameraUrls.map((url) => <img src={url} className="w-1/2 p-2" />)}
+          {cameraUrls.map((url) => (
+            <img src={url} className="w-1/2 p-2" />
+          ))}
         </div>
       </div>
     </div>

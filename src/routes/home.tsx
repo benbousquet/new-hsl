@@ -1,34 +1,10 @@
 import { faSlack } from "@fortawesome/free-brands-svg-icons";
 import { faUsers } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import DoorStatus from "../components/doorStatus";
 
 export default function Home() {
-  const [isDoorOpen, setIsDoorOpen] = useState<boolean>(false);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-
-  useEffect(() => {
-    async function fetchData() {
-      setIsLoading(true);
-      const res = await fetch(
-        "https://members.heatsynclabs.org/space_api.json"
-      );
-      const json = await res.json();
-      setIsDoorOpen(json.open);
-      setIsLoading(false);
-    }
-    fetchData();
-  }, []);
-
-  function createDoorStatus() {
-    return (
-      <span className={isDoorOpen ? "text-success" : "text-error"}>
-        {isDoorOpen ? " open, come on down!" : " closed, check the calendar!"}
-      </span>
-    );
-  }
-
   return (
     <div className="lg:max-w-6xl lg:m-auto space-y-8 pb-20 m-4">
       {/* top information section */}
@@ -85,7 +61,7 @@ export default function Home() {
             </li>
             <li>
               <span className="font-bold">Our doors are currently:</span>
-              {isLoading ? " Loading..." : createDoorStatus()}
+              <DoorStatus />
             </li>
           </ul>
           <div className="space-y-4 pb-8 lg:pb-0">
@@ -117,19 +93,14 @@ export default function Home() {
         <div className="flex flex-col space-y-4">
           <h1 className="text-3xl font-bold">Interested in Classes?</h1>
           <p>
-            <Link to="/register"
-              className="link link-hover text-blue-500"
-            >
+            <Link to="/register" className="link link-hover text-blue-500">
               Register
             </Link>{" "}
             to get notifications on classes you are interested in.
           </p>
           <p>
             Check out{" "}
-            <Link
-              to="/classes"
-              className="link link-hover text-blue-500"
-            >
+            <Link to="/classes" className="link link-hover text-blue-500">
               all our classes
             </Link>{" "}
             to see what's available.
