@@ -9,6 +9,7 @@ import {
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 export default function Navbar() {
   const [open, setOpen] = useState<Boolean>(false);
 
@@ -62,11 +63,9 @@ export default function Navbar() {
   function dropdown() {
     return (
       <div className="lg:hidden absolute w-full max-h-full">
-        <ul
-          className="menu bg-zinc-900 [&>li]:text-white [&>li,ul]:inline"
-        >
+        <ul className="menu bg-zinc-900 [&>li]:text-white [&>li,ul]:inline">
           <li>
-            <a>Classes</a>
+            <Link to="/classes">Classes</Link>
           </li>
           <li className="text-center">
             <a href="https://members.heatsynclabs.org/">Membership</a>
@@ -91,7 +90,9 @@ export default function Navbar() {
     <div className="bg-black w-full border-t-4 border-primary">
       <div className="navbar bg-black max-w-7xl mx-auto">
         <div className="flex-1">
-          <img src={logo} className="h-14"></img>
+          <Link to="/">
+            <img src={logo} className="h-14"></img>
+          </Link>
         </div>
         <button
           onClick={() => {
@@ -104,7 +105,7 @@ export default function Navbar() {
         <div className="flex-none hidden lg:flex">
           <ul className="menu menu-horizontal px-1 [&>li]:text-white">
             <li>
-              <a>Classes</a>
+              <Link to="/classes">Classes</Link>
             </li>
             <li>
               <a href="https://members.heatsynclabs.org/">Membership</a>
