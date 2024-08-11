@@ -13,7 +13,7 @@ import { Link } from "react-router-dom";
 export default function Navbar() {
   const [open, setOpen] = useState<Boolean>(false);
 
-  function createSocialLinks() {
+  function SocialLinks() {
     return (
       <div>
         <button
@@ -60,7 +60,7 @@ export default function Navbar() {
     );
   }
 
-  function dropdown() {
+  function Dropdown() {
     return (
       <div className="lg:hidden absolute w-full max-h-full">
         <ul className="menu bg-zinc-900 [&>li]:text-white [&>li,ul]:inline">
@@ -79,7 +79,7 @@ export default function Navbar() {
             </a>
           </li>
           <li>
-            <div className="flex flex-row">{createSocialLinks()}</div>
+            <div className="flex flex-row"><SocialLinks /></div>
           </li>
         </ul>
       </div>
@@ -119,11 +119,11 @@ export default function Navbar() {
               </a>
             </li>
           </ul>
-          {createSocialLinks()}
+          <SocialLinks />
         </div>
       </div>
       {/* mobile menu */}
-      {open && dropdown()}
+      {open && (<Dropdown />)}
     </div>
   );
 }
